@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option go_package = "github.com/ruziba3vich/registration_ms/genprotos";
+
+message CreateUserRequest {
+    string username = 1;
+    string data     = 2;
+}
+
+message CreateUserResponse {
+    string user_id = 1;
+    string username = 2;
+    string data = 3;
+}
+
+message CreateAdminRequest {
+    string admin_name = 1;
+}
+
+message CreateAdminResponse {
+    string admin_id = 1;
+    string admin_name = 2;
+}
+
+service UserService {
+    rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);
+    rpc CreateAdmin(CreateAdminRequest) returns (CreateAdminResponse) {}
+}
